@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Fonts */
+  --font-outfit: 'Outfit', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+  --font-plus-jakarta: 'Plus Jakarta Sans', sans-serif;
+
+  /* Base colors - Light theme */
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --spinner-color-foreground: #000; /* Light theme spinner foreground */
+  --spinner-color-background: #fff; /* Light theme spinner background */
+
+  /* Status colors */
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --success: 142 72% 29%;
+  --success-foreground: 144 70% 98%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 48 96% 98%;
+  --info: 214 95% 93%;
+  --info-foreground: 214 80% 56%;
+  --purple: 270 95% 75%;
+  --purple-foreground: 210 40% 98%;
+  --orange: 24.6 95% 53.1%;
+  --orange-foreground: 210 40% 98%;
+  --cyan: 180 95% 55%;
+  --cyan-foreground: 210 40% 98%;
+
+  /* UI elements */
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 5.9% 10%;
+  --radius: 1rem;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --spinner-color-foreground: #fff; /* Dark theme spinner foreground */
+  --spinner-color-background: 240 10% 3.9%; /* Dark theme spinner background */
+  
+  /* Status colors */
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --success: 142 72% 29%;
+  --success-foreground: 144 70% 98%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 48 96% 98%;
+  --info: 214 95% 93%;
+  --info-foreground: 214 80% 56%;
+  --purple: 270 95% 75%;
+  --purple-foreground: 210 40% 98%;
+  --orange: 24.6 95% 53.1%;
+  --orange-foreground: 210 40% 98%;
+  --cyan: 180 95% 55%;
+  --cyan-foreground: 210 40% 98%;
+
+  /* UI elements */
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-outfit);
+    @apply antialiased bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-plus-jakarta);
+  }
+}
+
+/* Component Styles */
+.card {
+  @apply rounded-lg shadow-sm hover:shadow-md transition-all duration-300;
+}
+
+.button-primary {
+  @apply rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] 
+         shadow-sm hover:shadow-md hover:opacity-90 transition-all duration-300;
+}
+
+.button-secondary {
+  @apply rounded-full bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))]
+         shadow-sm hover:shadow-md hover:opacity-90 transition-all duration-300;
+}
+
+.input-field {
+  @apply rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))]
+         shadow-sm focus:ring-2 focus:ring-[hsl(var(--ring))] transition-all duration-300;
+}
+
+/* Alert Styles */
+.alert-success {
+  @apply rounded-lg bg-[hsl(var(--success))] text-[hsl(var(--success-foreground))]
+         shadow-sm border border-[hsl(var(--success))/20];
+}
+
+.alert-warning {
+  @apply rounded-lg bg-[hsl(var(--warning))] text-[hsl(var(--warning-foreground))]
+         shadow-sm border border-[hsl(var(--warning))/20];
+}
+
+.alert-error {
+  @apply rounded-lg bg-[hsl(var(--destructive))] text-[hsl(var(--destructive-foreground))]
+         shadow-sm border border-[hsl(var(--destructive))/20];
+}
+
+.alert-info {
+  @apply rounded-lg bg-[hsl(var(--info))] text-[hsl(var(--info-foreground))]
+         shadow-sm border border-[hsl(var(--info))/20];
+}
+
+/* Glass Effects */
+.glass-effect {
+  @apply bg-[hsl(var(--background))]/90 backdrop-blur-md border border-[hsl(var(--border))]
+         rounded-lg shadow-sm hover:shadow-md transition-all duration-300;
+}
+
+/* Navigation Styles */
+.nav-item {
+  @apply rounded-lg px-4 py-2 text-[hsl(var(--muted-foreground))]
+         hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))]
+         transition-all duration-300;
+}
+
+.nav-item-active {
+  @apply bg-[hsl(var(--accent))] text-[hsl(var(--accent-foreground))];
+}
+
+/* Animation Classes */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.animate-in {
+  animation: slideIn 0.2s ease-out;
+}
+
+.animate-out {
+  animation: slideOut 0.2s ease-in;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+@keyframes l13{ 
+  100%{transform: rotate(1turn)}
+}
+
+@keyframes l10{
+  90%,100% {transform: translate(300%)}
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: 
+    radial-gradient(farthest-side,#ffa516 94%,#0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%,#ffa516);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+  animation: l13 1s infinite linear;
+}
+
+.dark .loader {
+  background: 
+    radial-gradient(farthest-side,#ffa516 94%,#0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%,#ffa516);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
